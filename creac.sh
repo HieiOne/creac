@@ -2,7 +2,7 @@
 ##########################################################################################
 # Name: creac                                                                
 # Author: Hiei <blascogasconiban@gmail.com>                                                  
-# Version: 2.4                                                                           
+# Version: 2.5                                                                           
 # Description: 
 #              This Script will create file wherever you want with almost any extension
 #		
@@ -19,7 +19,7 @@ yellow=`tput setaf 3`
 ruta=`pwd`
 if [[ "$1" == "-r" ]] || [[ "$1" == "--route" ]] || [[ "$1" == "-dr" ]] || [[ "$1" == "-rd" ]] ; then
 	read -ep "${red}[CREAC]${yellow} Path: ${reset}" ruta
-	if [ ! -d $ruta ] && [[ "$1" == "-dr" ]] || [[ "$1" == "-rd" ]]  ; then
+	if [ ! -d $ruta ] ; then
   		mkdir -p $ruta;
 	fi
 fi
