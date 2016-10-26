@@ -24,7 +24,9 @@ if [[ "$1" == "-r" ]] || [[ "$1" == "--route" ]] || [[ "$1" == "-dr" ]] || [[ "$
 	fi
 fi
 read -p ${red}"[CREAC]${yellow} Name of the file and the extension [file.ext]:${reset} " filename
-IFS=. read name ext <<<"${filename}"
+#variables=cut -d"." -f 
+${filename##*.} #gets last field
+IFS=. read name ext <<<"${variables}"
 
 case "$ext" in
 ("odt"|"xml"|"dtd"|"dia"|"txt")
