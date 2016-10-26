@@ -1,8 +1,9 @@
+#if (( $("-r" | "--route" | "-dr" | "-rd") == "$1" ))
 #!/bin/bash
 ##########################################################################################
 # Name: creac                                                                
 # Author: Hiei <blascogasconiban@gmail.com>                                                  
-# Version: 2.2                                                                           
+# Version: 2.3                                                                           
 # Description: 
 #              This Script will create file wherever you want with almost any extension
 #		
