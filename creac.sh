@@ -2,7 +2,7 @@
 ##########################################################################################
 # Name: creac                                                                
 # Author: Hiei <blascogasconiban@gmail.com>                                                  
-# Version: 2.3                                                                           
+# Version: 2.4                                                                           
 # Description: 
 #              This Script will create file wherever you want with almost any extension
 #		
@@ -24,9 +24,8 @@ if [[ "$1" == "-r" ]] || [[ "$1" == "--route" ]] || [[ "$1" == "-dr" ]] || [[ "$
 	fi
 fi
 read -p ${red}"[CREAC]${yellow} Name of the file and the extension [file.ext]:${reset} " filename
-#variables=cut -d"." -f 
-${filename##*.} #gets last field
-IFS=. read name ext <<<"${variables}"
+ext=${filename##*.}
+name=${filename%"."$ext}
 
 case "$ext" in
 ("odt"|"xml"|"dtd"|"dia"|"txt")
