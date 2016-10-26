@@ -2,14 +2,14 @@
 ##########################################################################################
 # Name: creac                                                                
 # Author: Hiei <blascogasconiban@gmail.com>                                                  
-# Version: 2.1                                                                           
+# Version: 2.2                                                                           
 # Description: 
 #              This Script will create file wherever you want with almost any extension
 #		
 #	                                                                                                                                            
 # IMPORTANT:                                                                             
 #	        -   If any extension is not included, you can add it manually by: 
-#			1.- Create a file 1.extension in the folder /home/user/ext
+#			1.- Create a file "1.extension" in the folder /etc/creac/ext
 #			2.- Add it to the case like ("odt")                                                                             
 #                                                                                                                                                    
 ##########################################################################################
@@ -30,10 +30,10 @@ case "$ext" in
 ("odt"|"xml"|"dtd"|"dia"|"txt")
 	if [[ "$1" == "-d" ]] || [[ "$1" == "--directory" ]] ; then
 		mkdir -p "$ruta"/$name
-		cp /home/ivan/ext/1.$ext "$ruta"/$name
+		cp /etc/creac/ext/1.$ext "$ruta"/$name
 		mv "$ruta"/$name/1.$ext "$ruta"/$name/"$name.$ext"
 	else
-		cp /home/ivan/ext/1.$ext "$ruta"
+		cp /etc/creac/ext/1.$ext "$ruta"
 		mv "$ruta"/1.$ext "$ruta"/"$name.$ext"		
 	fi
 #	touch "$ruta"/$name/$name.$ext
