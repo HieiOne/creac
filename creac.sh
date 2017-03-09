@@ -20,7 +20,7 @@ bold=`tput bold`;red=`tput setaf 1`;reset=`tput sgr0`;yellow=`tput setaf 3` #col
 #DEFAULT_CONFIG
 DIRECTORY=$(pwd)
 USER="" #modify the user in the getopts if you want other name
-FILES_DIRECTORY="/etc/creac/ext/"
+FILES_DIRECTORY="/etc/creac/ext/" #modify if you have folder somewhere else
 
 function create() {
 	mkdir -p "$3" #creates the directory if doesn't exist
