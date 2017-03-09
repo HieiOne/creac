@@ -20,7 +20,7 @@ bold=`tput bold`;red=`tput setaf 1`;reset=`tput sgr0`;yellow=`tput setaf 3` #col
 #DEFAULT_CONFIG
 DIRECTORY=$(pwd)
 USER="" #modify the user in the getopts if you want other name
-FILES_DIRECTORY="/etc/creac/ext/" #modify if you have folder somewhere else
+FILES_DIRECTORY="" #add route where you stored your extensions
 
 function create() {
 	mkdir -p "$3" #creates the directory if doesn't exist
@@ -43,7 +43,7 @@ while getopts ":r :d :u :h" OPT; do
 	case $OPT in
 		r) read -ep "${red}[CREAC]${yellow} Path: ${reset}" DIRECTORY ;;
 		d) read -p "${red}[CREAC]${yellow} Directory name: " FOLDER_NAME;DIRECTORY="$DIRECTORY/$FOLDER_NAME" ;;
-		u) USER="IvanBlasco_" ;;
+		u) USER="$(whoami)_" ;; #default value user name
 		h) help ;;
 	 	\?) echo "Invalid option: -$OPTARG";exit 1 ;;
 	esac
