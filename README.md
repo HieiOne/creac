@@ -10,13 +10,13 @@
 
 · BUGS:         
 	     
-None found yet!
+      None found yet!
 
 
 · IMPORTANT:
                
                
-If any extension is not included, you can add it manually by:
+      If any extension is not included, you can add it manually by:
         1.- Create a file "1.extension" in the folder /etc/creac/ext
         2.- Add it to the case like (odt|xml|dtd)
 
