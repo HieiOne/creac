@@ -2,7 +2,7 @@
 ##########################################################################################
 # Name: creac                                                                
 # Author: Hiei <blascogasconiban@gmail.com>                                                  
-# Version: 2.7                                                                           
+# Version: 3.0b
 # Description: 
 #              This Script will create file wherever you want with almost any extension
 # 
