@@ -2,7 +2,7 @@
 ##########################################################################################
 # Name: creac
 # Author: Hiei <blascogasconiban@gmail.com>
-# Version: 3.1/stable
+# Version: 3.1.1/stable
 # Description:
 #              This Script will create file wherever you want with almost any extension
 #
@@ -20,9 +20,10 @@ bold=`tput bold`;red=`tput setaf 1`;reset=`tput sgr0`;yellow=`tput setaf 3` #col
 #DEFAULT_CONFIG
 DIRECTORY=$(pwd)
 USER="" #modify the user in the getopts if you want other name
-FILES_DIRECTORY="" #add route where you stored your extensions
+FILES_DIRECTORY="" #add path where you stored your extensions
 
 function create() {
+	#$1=FILE_NAME $2=EXTENSION $3=DIRECTORY $4=FILES_DIRECTORY $5=USER
 	mkdir -p "$3" #creates the directory if doesn't exist
 	cp -i "$4/1.$2" "$3" #copies the file
 	mv -i "$3/1.$2" "$3/$5$1.$2" #renames the file
@@ -52,7 +53,7 @@ done
 read -p "${red}[CREAC]${yellow} Extension for your file: ${reset}" FILE_EXTENSION
 case $FILE_EXTENSION in
 	odt|xml|dtd|dia|txt) read -p "${red}[CREAC]${yellow} Your file name: ${reset}" FILE_NAME
-			     create "$FILE_NAME" "$FILE_EXTENSION" "$DIRECTORY" "$FILES_DIRECTORY" "$USER" ;;
+			     							create "$FILE_NAME" "$FILE_EXTENSION" "$DIRECTORY" "$FILES_DIRECTORY" "$USER" ;;
 	*) echo "${red}${bold}Error: choose a valid extension!${reset}";exit 1
 esac
 exit 0

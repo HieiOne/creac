@@ -2,7 +2,7 @@
 
 · Author: Hiei <blascogasconiban@gmail.com>
 
-· Version: 3.1/stable
+· Version: 3.1.1/stable
 
 · Description:
               This Script will create file wherever you want with almost any extension
