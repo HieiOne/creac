@@ -2,7 +2,7 @@
 ##########################################################################################
 # Name: creac
 # Author: Hiei <blascogasconiban@gmail.com>
-# Version: 3.2.4/stable
+# Version: 3.2.5/stable
 # Description:
 #              This Script will create file wherever you want with almost any extension
 #
@@ -22,8 +22,8 @@ DIRECTORY=$(pwd)
 USER=""
 
 function updater {
-LOCAL=$(git rev-parse @)
-REMOTE=$(git ls-remote origin -h refs/heads/master | cut -f1)
+LOCAL=$(git -C "$(dirname $0)" rev-parse @)
+REMOTE=$(git -C "$(dirname $0)" ls-remote origin -h refs/heads/master | cut -f1)
 
 if ! [ $LOCAL = $REMOTE ]; then
 	echo "${red}${bold}You need to update $0!"
