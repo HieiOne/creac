@@ -2,7 +2,7 @@
 ##########################################################################################
 # Name: creac
 # Author: Hiei <blascogasconiban@gmail.com>
-# Version: 3.2.2/stable
+# Version: 3.2.4/stable
 # Description:
 #              This Script will create file wherever you want with almost any extension
 #
@@ -16,7 +16,8 @@
 #			2.- Add it to the case like (odt|xml|dtd)
 #
 ##########################################################################################
-source creac.conf
+source "$(dirname $0)"/creac.conf #to avoid problems if it is moved, creac.sh and creac.conf must stay together
+
 DIRECTORY=$(pwd)
 USER=""
 
