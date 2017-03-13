@@ -2,7 +2,7 @@
 ##########################################################################################
 # Name: creac
 # Author: Hiei <blascogasconiban@gmail.com>
-# Version: 3.2.5/stable
+# Version: 3.2.6/stable
 # Description:
 #              This Script will create file wherever you want with almost any extension
 #
@@ -28,8 +28,8 @@ REMOTE=$(git -C "$(dirname $0)" ls-remote origin -h refs/heads/master | cut -f1)
 if ! [ $LOCAL = $REMOTE ]; then
 	echo "${red}${bold}You need to update $0!"
 	read -ep "Want to do it now? ${reset}" ANSWER
-	if [ $ANSWER = y ] || [ $ANSWER = Y]; then
-		git pull
+	if [ $ANSWER = "y" ] || [ $ANSWER = "Y" ]; then
+		git -C "$(dirname $0)" pull
 	else
 		exit 1
 	fi
