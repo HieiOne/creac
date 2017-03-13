@@ -30,6 +30,7 @@ if ! [ $LOCAL = $REMOTE ]; then
 	read -ep "Want to do it now? ${reset}" ANSWER
 	if [ $ANSWER = "y" ] || [ $ANSWER = "Y" ]; then
 		git -C "$(dirname $0)" pull
+		exit 0
 	else
 		exit 1
 	fi
