@@ -2,7 +2,7 @@
 ##########################################################################################
 # Name: creac
 # Author: Hiei <blascogasconiban@gmail.com>
-# Version: 3.2.6/stable
+# Version: 3.3.6/stable
 # Description:
 #              This Script will create file wherever you want with almost any extension
 #
@@ -14,6 +14,7 @@
 #	        -   If any extension is not included, you can add it manually by:
 #			1.- Create a file "1.extension" in the folder /etc/creac/ext
 #			2.- Add it to the case like (odt|xml|dtd)
+#		-   If you use argument "-d" make sure to use arguments one by one (e.g creac -d "name" -u"
 #
 ##########################################################################################
 source "$(dirname $0)"/creac.conf #to avoid problems if it is moved, creac.sh and creac.conf must stay together
@@ -50,23 +51,26 @@ function create() {
 function help {
 	echo """${red}Usage: ${bold}[CREAC]${reset}${red} <OPTION>
 	OPTION:
-	    ${yellow}<noargs>    --> 	Creates the file in the active directory
-		<r>	--> 	Specify the route if you dont want the active directory
-		<d>	--> 	Creates the file inside the specified folder
-		<u>	-->	Creates the file with the USERNAME
-		<f>	-->	Check if there's any new version
-		<h>	--> 	Shows help${reset}"""
+	    ${yellow}<noargs>      --> 	Creates the file in the active directory
+		<r>	  --> 	Specify the path if you dont want the active directory
+		<d><name> --> 	Creates the file inside the specified folder
+		<D>	  -->	Same as "d" but no argument needed
+		<u>	  -->	Creates the file with the USERNAME
+		<f>	  -->	Check if there's any new version
+		<h>	  --> 	Shows help${reset}"""
 	exit 0
 }
 
-while getopts ":r :d :u :h :f" OPT; do
+while getopts ":r :d: :D :u :h :f" OPT; do
 	case $OPT in
 		r) read -ep "${red}[CREAC]${yellow} Path: ${reset}" DIRECTORY ;;
-		d) read -p "${red}[CREAC]${yellow} Directory name: ${reset}" FOLDER_NAME;DIRECTORY="$DIRECTORY/$FOLDER_NAME" ;;
+		d) DIRECTORY="$DIRECTORY/$OPTARG" ;;
+		D) read -p "${red}[CREAC]${yellow} Directory name: ${reset}" FOLDER_NAME;DIRECTORY="$DIRECTORY/$FOLDER_NAME" ;;
 		u) USER=$USER_NAME ;; #default value user name
 		h) help ;;
 		f) updater ;;
-	 	\?) echo "Invalid option: -$OPTARG";exit 1 ;;
+	 	\?) echo "${red}${bold}Invalid option: -$OPTARG";exit 1 ;;
+		:) echo "${red}${bold}Option -$OPTARG requires an argument";exit 1 ;;
 	esac
 done
 

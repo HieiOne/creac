@@ -2,7 +2,7 @@
 
 · Author: Hiei <blascogasconiban@gmail.com>
 
-· Version: 3.2.6/stable
+· Version: 3.3.6/stable
 
 · Description:
               This Script will create file wherever you want with almost any extension
@@ -22,3 +22,4 @@
       
       It is important that the files has the name '1' followed by the extension
 
+	Use arguments one by one if you use "-d" (e.g creac -d "name" -u)
