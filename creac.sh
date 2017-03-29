@@ -17,20 +17,20 @@
 #		-   If you use argument "-d" make sure to use arguments one by one (e.g creac -d "name" -u"
 #
 ##########################################################################################
-source "$(dirname $0)"/creac.conf #to avoid problems if it is moved, creac.sh and creac.conf must stay together
+source "$(dirname "$0")"/creac.conf #to avoid problems if it is moved, creac.sh and creac.conf must stay together
 
 DIRECTORY=$(pwd)
 USER=""
 
 function updater {
-LOCAL=$(git -C "$(dirname $0)" rev-parse @)
-REMOTE=$(git -C "$(dirname $0)" ls-remote origin -h refs/heads/master | cut -f1)
+LOCAL=$(git -C "$(dirname "$0")" rev-parse @)
+REMOTE=$(git -C "$(dirname "$0")" ls-remote origin -h refs/heads/master | cut -f1)
 
-if ! [ $LOCAL = $REMOTE ]; then
+if ! [ "$LOCAL" = "$REMOTE" ]; then
 	echo "${red}${bold}You need to update $0!"
 	read -ep "Want to do it now? ${reset}" ANSWER
-	if [ $ANSWER = "y" ] || [ $ANSWER = "Y" ]; then
-		git -C "$(dirname $0)" pull
+	if [ "$ANSWER" = "y" ] || [ "$ANSWER" = "Y" ]; then
+		git -C "$(dirname "$0")" pull
 		exit 0
 	else
 		exit 1
@@ -49,15 +49,16 @@ function create() {
 }
 
 function help {
-	echo """${red}Usage: ${bold}[CREAC]${reset}${red} <OPTION>
+	printf "${red}Usage: ${bold}[CREAC]${reset}${red} <OPTION>
 	OPTION:
 	    ${yellow}<noargs>      --> 	Creates the file in the active directory
 		<r>	  --> 	Specify the path if you dont want the active directory
 		<d><name> --> 	Creates the file inside the specified folder
-		<D>	  -->	Same as "d" but no argument needed
+		<D>	  -->	Same as 'd' but no argument needed
 		<u>	  -->	Creates the file with the USERNAME
 		<f>	  -->	Check if there's any new version
-		<h>	  --> 	Shows help${reset}"""
+		<h>	  --> 	Shows help\n"
+		${reset}
 	exit 0
 }
 
